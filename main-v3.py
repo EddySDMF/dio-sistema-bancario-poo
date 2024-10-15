@@ -66,6 +66,9 @@ def filtrar_clientes(cpf, clientes):
     cliente_filtrado = [cliente for cliente in clientes if cliente.cpf == cpf]
     return cliente_filtrado[0] if cliente_filtrado else None
 
+def filtrar_conta(cpf, contas):
+    pass
+
 def criar_cliente(clientes):
     cpf = input("Digite o CPF (somente números): ")
     cliente = filtrar_clientes(cpf, clientes)
