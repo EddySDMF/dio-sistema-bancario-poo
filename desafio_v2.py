@@ -166,7 +166,6 @@ class Deposito(Transacao):
         if sucesso_transacao:
             conta.historico.adicionar_transacao(self)
 
-
 def menu():
     menu = """\n
     ================ MENU ================
@@ -251,6 +250,7 @@ def exibir_extrato(clientes):
     print(extrato)
     print(f"\nSaldo:\n\tR$ {conta.saldo:.2f}")
     print("==========================================")
+
 
 def criar_cliente(clientes):
     cpf = input("Informe o CPF (somente número): ")

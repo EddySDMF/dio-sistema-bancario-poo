@@ -1,4 +1,10 @@
+"""
+REGRAS DO SISTEMAS
+
+"""
+
 from datetime import datetime
+
 
 def menu():
     menu = """
@@ -13,12 +19,14 @@ def menu():
     => """
     return input(menu)
 
+
 def depositar(saldo, quantia, /):
     if quantia > 0:
         saldo += quantia
         print(f"Seu deposito de R${quantia:.2f} foi efetuado!")
     else:
         print("Nao foi possivel realizar o deposito. Tente novamente.")
+
 
 def sacar(*, saldo, quantia, numero_saques, limite_por_saque, LIMITE_SAQUES):
     regra_saldo = saldo >= quantia
@@ -36,6 +44,7 @@ def sacar(*, saldo, quantia, numero_saques, limite_por_saque, LIMITE_SAQUES):
             numero_saques += 1
             print(f"Seu saque de R${quantia:.2f} foi efetuado!")
 
+
 def extrato_completo(saldo, /, *, extrato, numero_saques, LIMITE_SAQUES):
     qtd_saques = LIMITE_SAQUES - numero_saques
     cabecalhos = ["Data", "Tipo", "Valor"]
@@ -50,6 +59,7 @@ def extrato_completo(saldo, /, *, extrato, numero_saques, LIMITE_SAQUES):
     else:
         print("Nao houveram movimentaçoes.")
 
+
 def gravar_transacao(quantia, extrato):
     data = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     if opcao == "d":
@@ -57,9 +67,11 @@ def gravar_transacao(quantia, extrato):
     elif opcao == "s":
         extrato.append([data, "Saque", quantia])
 
+
 def filtrar_usuarios(cpf, usuarios):
     usuario_filtrado = [usuario for usuario in usuarios if usuario["cpf"] == cpf]
     return usuario_filtrado[0] if usuario_filtrado else None
+
 
 def criar_usuario(usuarios):
 
@@ -78,6 +90,7 @@ def criar_usuario(usuarios):
 
     print("=== Usuário criado com sucesso! ===")
 
+
 def criar_conta_corrente(agencia, numero_conta, usuarios):
 
     cpf = input("Digite o CPF (somente números): ")
@@ -90,6 +103,7 @@ def criar_conta_corrente(agencia, numero_conta, usuarios):
     else:
         print("=== Usuário não encontrado! ===")
 
+
 def listar_contas(contas):
     print("=================== CONTAS ========================")
 
@@ -101,6 +115,7 @@ def listar_contas(contas):
         """
         print(saida)
         
+
 def main():
 
     LIMITE_SAQUES = 10
